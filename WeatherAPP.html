@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <script src="./weather.js" defer></script>    
+    <script type="module" src="./Map.js"></script>      
+    <title>Weather & Map</title>
+</head>
+<body>
+    <section class="weather-content">
+        <h1>Busqueda del Clima</h1>
+        <div class="result">        
+            <p>Ingrese su ciudad y país</p>                
+        </div>
+        <form action="" method="post" class="get-weather">            
+            <input type="text" name="Ciudad" id="city" placeholder="Escribe tu ciudad">
+            <select name="" id="country">
+                <option disabled selected value="">Selecciona tu país</option>
+                <option value="AR">Argentina</option>
+                <option value="CO">Colombia</option>
+                <option value="CR">Costa Rica</option>
+                <option value="ES">España</option>
+                <option value="US">Estados Unidos</option>
+                <option value="MX">México</option>
+                <option value="PE">Perú</option>
+            </select>
+
+            <input type="submit" name="" id="" value="Obtener Clima">
+        </form>        
+    </section>
+
+    <section class="map-content">
+        <h3>Mapa del clima</h3>
+
+        <div id="parent">
+            <div id="map"></div>   
+            <script>
+                (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+                key: "API_KEY_GOOGLEMAPS", v: "weekly"              
+                });
+            </script>
+            <script async
+                src="https://maps.googleapis.com/maps/api/js?key=API_KEY_GOOGLEMAPS&libraries=places&callback=initMap">
+            </script>  
+        </div>                 
+</body>
+</html>
